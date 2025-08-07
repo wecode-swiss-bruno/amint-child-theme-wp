@@ -7,6 +7,14 @@ define( 'SNN_PATH_ASSETS', trailingslashit( SNN_PATH . 'assets' ) );
 define( 'SNN_URL', trailingslashit( get_stylesheet_directory_uri() ) ); 
 define( 'SNN_URL_ASSETS', trailingslashit( SNN_URL . 'assets' ) );  
 
+add_action('wp_enqueue_scripts', function () {
+  wp_enqueue_style(
+    'theme-vars',
+    get_stylesheet_directory_uri() . '/assets/css/variables.css',
+    [],
+    null
+  );
+});
 
 // Main Features and Settings
 require_once SNN_PATH . 'includes/settings-page.php';
@@ -92,6 +100,7 @@ add_action('init', function () {
 \Bricks\Elements::register_element(SNN_PATH . 'includes/elements/video-player.php');
 \Bricks\Elements::register_element(SNN_PATH . 'includes/elements/audio-player.php');
 \Bricks\Elements::register_element(SNN_PATH . 'includes/elements/marquee-slider-carousel.php');
+\Bricks\Elements::register_element(SNN_PATH . 'includes/elements/stats-counter.php');
 
 
 // if GSAP setting is enabled Register Elements
@@ -115,3 +124,13 @@ if (!empty($options['enqueue_gsap'])) {
     require_once SNN_PATH . 'includes/elements/gsap-multi-element-register.php';
 
 }
+
+add_action('wp_enqueue_scripts', function() {
+    wp_enqueue_script(
+        'amint-menu',
+        get_stylesheet_directory_uri() . '/assets/js/amint-menu.js',
+        ['jquery'],
+        filemtime( get_stylesheet_directory() . '/assets/js/amint-menu.js' ),
+        true
+    );
+});

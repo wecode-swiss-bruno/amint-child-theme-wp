@@ -1,0 +1,180 @@
+/* Stats Counter Element Styles */
+.stats-counter-element {
+    width: 100%;
+}
+
+.stats-counter-wrapper {
+    display: grid;
+    grid-template-columns: repeat(var(--stats-columns, 3), 1fr);
+    gap: 60px;
+    width: 100%;
+}
+
+.stats-counter-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+/* Icon Styles */
+.stats-counter-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 40px;
+    color: #3498db;
+}
+
+.stats-counter-icon svg {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+}
+
+/* Title Styles */
+.stats-counter-title {
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #666666;
+    margin-bottom: 15px;
+    order: -1; /* Title comes first */
+}
+
+/* Value Container Styles */
+.stats-counter-value {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #333333;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: baseline;
+    gap: 0.1em;
+}
+
+.stats-counter-number {
+    font-weight: inherit;
+    font-size: inherit;
+    color: inherit;
+}
+
+.stats-counter-prefix,
+.stats-counter-suffix {
+    font-size: 0.8em;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+/* Description Styles */
+.stats-counter-description {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #777777;
+    margin-top: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+    .stats-counter-wrapper {
+        grid-template-columns: repeat(min(var(--stats-columns, 3), 2), 1fr);
+        gap: 40px;
+    }
+    
+    .stats-counter-value {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 767px) {
+    .stats-counter-wrapper {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .stats-counter-value {
+        font-size: 32px;
+    }
+}
+
+/* Animation States */
+.stats-counter-element.has-animation .stats-counter-number {
+    transition: all 0.3s ease;
+}
+
+/* Hover Effects (optional) */
+.stats-counter-item {
+    transition: transform 0.3s ease;
+}
+
+.stats-counter-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Builder Mode Styles */
+.brx-body.iframe .stats-counter-element {
+    min-height: 100px;
+}
+
+/* Divider/Separator Styles (optional) */
+.stats-counter-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 60%;
+    background-color: rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+/* Show dividers only on desktop when columns > 1 */
+@media (min-width: 992px) {
+    .stats-counter-wrapper[style*="--stats-columns: 2"] .stats-counter-item:nth-child(2n):not(:last-child)::after,
+    .stats-counter-wrapper[style*="--stats-columns: 3"] .stats-counter-item:nth-child(3n):not(:last-child)::after,
+    .stats-counter-wrapper[style*="--stats-columns: 4"] .stats-counter-item:nth-child(4n):not(:last-child)::after {
+        display: none;
+    }
+    
+    .stats-counter-wrapper[style*="--stats-columns: 2"] .stats-counter-item:nth-child(odd):not(:last-child)::after,
+    .stats-counter-wrapper[style*="--stats-columns: 3"] .stats-counter-item:not(:nth-child(3n))::after,
+    .stats-counter-wrapper[style*="--stats-columns: 4"] .stats-counter-item:not(:nth-child(4n))::after {
+        display: block;
+    }
+}
+
+/* Dark Mode Support (optional) */
+@media (prefers-color-scheme: dark) {
+    .stats-counter-title {
+        color: #999999;
+    }
+    
+    .stats-counter-value {
+        color: #f0f0f0;
+    }
+    
+    .stats-counter-description {
+        color: #aaaaaa;
+    }
+    
+    .stats-counter-item::after {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* Print Styles */
+@media print {
+    .stats-counter-wrapper {
+        grid-template-columns: repeat(var(--stats-columns, 3), 1fr) !important;
+    }
+    
+    .stats-counter-item::after {
+        display: none !important;
+    }
+}

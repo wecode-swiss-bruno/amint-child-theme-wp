@@ -1,0 +1,8 @@
+:root{
+    --color-primary: #1f4645;
+    --color-on-primary: #ffffff;
+    --color-surface: #ffffff;
+    --color-on-surface: #000000;
+    --color-error: #ff0000;
+    --color-on-error: #ffffff;
+}
