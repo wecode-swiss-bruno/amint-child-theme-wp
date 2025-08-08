@@ -1,8 +1,16 @@
 :root{
-    --color-primary: #1f4645;
+    --color-primary: #002453;
     --color-on-primary: #ffffff;
     --color-surface: #ffffff;
-    --color-on-surface: #000000;
+    --color-surface-secondary: #F9F9F9;
+    --color-on-surface: #002453;
+    --color-on-surface-secondary: #002453;
     --color-error: #ff0000;
     --color-on-error: #ffffff;
+    --color-text-primary: #002453;
+    --color-text-secondary: #002453;
+    --color-text-tertiary: #002453;
+    --color-text-quaternary: #002453;
+    --color-text-quinary: #002453;
+    --color-text-senary: #002453;
 }
