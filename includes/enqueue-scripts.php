@@ -1,10 +1,6 @@
 <?php
 
-add_action('wp_enqueue_scripts', function () {
-  if (!bricks_is_builder_main()) {
-    wp_enqueue_style('bricks-child', get_stylesheet_uri(), ['bricks-frontend'], filemtime(SNN_PATH . 'style.css')); 
-  }
-});
+
 
 
 // Check if the user is logged in and the URL '?bricks=run'
@@ -197,3 +193,10 @@ observer.observe(document.body, {
   }
 }
 add_action('wp', 'add_footer_inline_js_for_logged_users');
+
+
+add_action('wp_enqueue_scripts', function () {
+  if (!bricks_is_builder_main()) {
+    wp_enqueue_style('bricks-child', get_stylesheet_uri(), ['bricks-frontend'], filemtime(SNN_PATH . 'style.css')); 
+  }
+}, 999);

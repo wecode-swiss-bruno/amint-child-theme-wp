@@ -52,3 +52,147 @@ Text Domain:  bricks
 .text-white{
     color: #ffffff;
 }
+
+/* Heading styles */
+.h1, .h2, .h3, .h4, .h5, .h6{
+    font-weight: 500 !important;
+    line-height: 1.2 !important;
+    margin-bottom: 16px !important;
+    color: var(--color-primary);
+}
+
+.h1{
+    font-size: 48px !important;
+}
+
+.h2{
+    font-size: 40px !important;
+}
+
+.h3{
+    font-size: 32px !important;
+}
+
+.h4{
+    font-size: 24px !important;
+}
+
+.h5{
+    font-size: 20px !important;
+}
+
+.h6{
+    font-size: 16px !important;
+}
+
+/* Text styles */
+.text-primary{
+    color: var(--color-primary);
+}
+
+.text-secondary{
+    color: var(--color-secondary);
+}
+
+.text-normal{
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+    color: var(--color-text);
+}
+
+.text-lead{
+    font-size: 24px !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+    color: var(--color-text);
+}
+
+.text-small{
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+    color: var(--color-text);
+}
+
+.text-bold{
+    font-weight: 700 !important;
+}
+
+.text-italic{
+    font-style: italic !important;
+}
+
+.text-center{
+    text-align: center !important;
+}
+
+.text-left{
+    text-align: left !important;
+}
+
+.text-right{
+    text-align: right !important;
+}
+
+.text-justify{
+    text-align: justify !important;
+}
+
+/* Additional CSS Classes */
+.serif {
+    font-family: serif !important;
+}
+
+.ami-seperator-title {
+    font-style: italic !important;
+    color: #002453 !important;
+}
+
+.text-xl {
+    font-size: 32px !important;
+}
+
+.mega-menu {
+    visibility: collapse !important;
+}
+
+.brxe-close {
+    /* Add specific styles as needed */
+}
+
+.mega-menu2 {
+    visibility: collapse !important;
+}
+
+.ami-menu-animated {
+    justify-content: center !important;
+}
+
+.hide {
+    display: none !important;
+}
+
+.top-menu {
+    /* Add specific styles as needed */
+}
+
+.hero {
+    /* Add specific styles as needed */
+}
+
+.brxe-heading {
+    /* Add specific styles as needed */
+}
+
+.demo-a {
+    /* Add specific styles as needed */
+}
+
+.texxt-lead {
+    /* Add specific styles as needed */
+}
+
+
+
+
