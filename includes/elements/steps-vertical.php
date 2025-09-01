@@ -4,6 +4,8 @@ if (!defined('ABSPATH')) exit;
 
 use Bricks\Element;
 
+// demo lol
+
 class Snn_Steps_Vertical extends Element {
     public $category     = 'snn';
     public $name         = 'steps-vertical';
@@ -38,6 +40,13 @@ class Snn_Steps_Vertical extends Element {
     }
 
     public function set_controls() {
+        // Main title (right column)
+        $this->controls['main_title'] = [
+            'tab'   => 'content',
+            'label' => esc_html__('Titre principal', 'snn'),
+            'type'  => 'text',
+        ];
+
         // Media (left column)
         $this->controls['main_image'] = [
             'tab'   => 'content',
@@ -185,6 +194,20 @@ class Snn_Steps_Vertical extends Element {
             'default' => '0px',
         ];
 
+        // Main title styles
+        $this->controls['mainTitleTypography'] = [
+            'tab'   => 'content',
+            'label' => esc_html__('Main title typography', 'snn'),
+            'type'  => 'typography',
+            'css'   => [ [ 'property' => 'font', 'selector' => '.snn-steps-vertical__main-title' ] ],
+        ];
+        $this->controls['mainTitleColor'] = [
+            'tab'   => 'content',
+            'label' => esc_html__('Main title color', 'snn'),
+            'type'  => 'color',
+            'css'   => [ [ 'property' => 'color', 'selector' => '.snn-steps-vertical__main-title' ] ],
+        ];
+
         // Title, text, link typography
         $this->controls['titleTypography'] = [
             'tab'   => 'content',
@@ -271,6 +294,12 @@ class Snn_Steps_Vertical extends Element {
 
         // Content column
         echo '<div class="snn-steps-vertical__content">';
+        
+        // Main title
+        if (!empty($this->settings['main_title'])) {
+            echo '<h2 class="snn-steps-vertical__main-title">' . wp_kses_post($this->settings['main_title']) . '</h2>';
+        }
+        
         if ($steps) {
             foreach ($steps as $i => $item) {
                 $number = isset($item['number_override']) && $item['number_override'] !== '' ? wp_kses_post($item['number_override']) : strval($i + 1);
@@ -330,6 +359,7 @@ class Snn_Steps_Vertical extends Element {
             #' . esc_attr($root_id) . ' .snn-steps-vertical__media { height: 100%; }
             #' . esc_attr($root_id) . ' .snn-steps-vertical__img { width: 100%; height: 100%; display:block; object-fit: cover; }
             #' . esc_attr($root_id) . ' .snn-steps-vertical__content { }
+            #' . esc_attr($root_id) . ' .snn-steps-vertical__main-title { margin: 0 0 32px 0; font-size: 2rem; font-weight: 600; }
             #' . esc_attr($root_id) . ' .snn-steps-vertical__item { padding: 24px 0; border-bottom: 1px solid rgba(0,0,0,.12); }
             #' . esc_attr($root_id) . ' .snn-steps-vertical__item:last-child { border-bottom: none; }
             #' . esc_attr($root_id) . ' .snn-steps-vertical__header { display:flex; align-items:center; gap: 16px; margin-bottom: 10px; }

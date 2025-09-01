@@ -48,6 +48,9 @@ require_once SNN_PATH . 'includes/custom-code-snippets.php';
 require_once SNN_PATH . 'includes/cookie-banner.php';
 require_once SNN_PATH . 'includes/accessibility-settings.php';
 require_once SNN_PATH . 'includes/activity-logs.php';
+require_once SNN_PATH . 'includes/company-settings.php';
+require_once SNN_PATH . 'includes/company-helpers.php';
+require_once SNN_PATH . 'includes/company-shortcodes.php';
 
 // require_once SNN_PATH . 'includes/ai.php';
 require_once SNN_PATH . 'includes/ai/ai-settings.php';
@@ -103,6 +106,7 @@ add_action('init', function () {
 \Bricks\Elements::register_element(SNN_PATH . 'includes/elements/stats-counter.php');
       \Bricks\Elements::register_element(SNN_PATH . 'includes/elements/services-tabs.php');
       \Bricks\Elements::register_element(SNN_PATH . 'includes/elements/steps-vertical.php');
+      \Bricks\Elements::register_element(SNN_PATH . 'includes/elements/references-carousel.php');
 
 
 // if GSAP setting is enabled Register Elements
@@ -136,3 +140,12 @@ add_action('wp_enqueue_scripts', function() {
         true
     );
 });
+
+// Enable shortcode parsing in Bricks text & heading elements
+add_filter( 'bricks/content/text', 'do_shortcode' );
+add_filter( 'bricks/content/heading', 'do_shortcode' );
+
+add_action( 'acf/init', 'set_acf_settings' );
+function set_acf_settings() {
+    acf_update_setting( 'enable_shortcode', true );
+}
