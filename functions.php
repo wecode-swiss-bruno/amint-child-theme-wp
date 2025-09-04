@@ -105,8 +105,10 @@ add_action('init', function () {
 \Bricks\Elements::register_element(SNN_PATH . 'includes/elements/marquee-slider-carousel.php');
 \Bricks\Elements::register_element(SNN_PATH . 'includes/elements/stats-counter.php');
       \Bricks\Elements::register_element(SNN_PATH . 'includes/elements/services-tabs.php');
+      \Bricks\Elements::register_element(SNN_PATH . 'includes/elements/services-steps.php');
       \Bricks\Elements::register_element(SNN_PATH . 'includes/elements/steps-vertical.php');
       \Bricks\Elements::register_element(SNN_PATH . 'includes/elements/references-carousel.php');
+      \Bricks\Elements::register_element(SNN_PATH . 'includes/elements/references-grid.php');
 
 
 // if GSAP setting is enabled Register Elements
